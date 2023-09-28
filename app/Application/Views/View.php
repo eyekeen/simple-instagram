@@ -11,7 +11,7 @@ class View implements ViewInterface {
     /**
      * @throws ViewNotFoundException
      */
-    public static function show(string $view, array $params): void {
+    public static function show(string $view, array $params = []): void {
 
         extract($params);
         $path = __DIR__ . "/../../../views/$view.view.php";
