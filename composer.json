@@ -1,0 +1,21 @@
+{
+    "name": "tarum/framework",
+    "description": "simple framework",
+    "authors": [
+        {
+            "name": "tarum",
+            "email": "block-code@mail.ru"
+        }
+    ],
+    "require-dev": {
+        "larapack/dd": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "codin/dot": "^0.1.2"
+    }
+}
