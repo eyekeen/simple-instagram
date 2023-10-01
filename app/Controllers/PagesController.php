@@ -12,4 +12,10 @@ class PagesController {
             'title' => 'Home - ' . Config::get('app.name')
         ]);
     }
+    
+    public function login() {
+        View::show('pages/login', [
+            'title' => 'Login - ' . Config::get('app.name')
+        ]);
+    }
 }

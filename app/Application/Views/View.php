@@ -55,6 +55,7 @@ class View implements ViewInterface {
 
         include $path;
     }
+   
 
     public static function error(int $code): void {
         $path = __DIR__ . "/../../../views/app/errors/$code.view.php";

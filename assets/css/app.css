@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+body .main {
+  width: 40rem;
+}
+body .card-link .bi-heart {
+  display: block;
+}
+body .card-link .bi-heart-fill {
+  display: none;
+}
+body .card-link.like {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+body .card-link.like span.likes {
+  display: block;
+  margin-left: 10px;
+}
+body .card-link.like.active {
+  color: #dc3545;
+}
+body .card-link.like.active .bi-heart-fill {
+  display: block;
+}
+body .card-link.like.active .bi-heart {
+  display: none;
+}
+
+/*# sourceMappingURL=app.css.map */

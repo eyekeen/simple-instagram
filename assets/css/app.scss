@@ -1,0 +1,42 @@
+body{
+    
+    display: flex;
+    justify-content: center;
+    
+    .main{
+        width: 40rem;
+    }
+    
+    .card-link{
+        
+        .bi-heart{
+            display: block;
+        }
+        
+        .bi-heart-fill{
+            display: none;
+        }
+        
+        &.like{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            
+            span.likes{
+                display: block;
+                margin-left: 10px;
+            }
+        }
+        
+        &.like.active {
+            color: #dc3545;
+            .bi-heart-fill{
+                display: block;
+            }
+            
+            .bi-heart{
+                display: none;
+            }
+        }
+    }
+}
