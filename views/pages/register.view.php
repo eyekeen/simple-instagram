@@ -2,6 +2,7 @@
 
 use App\Application\Config\Config;
 use App\Application\Views\View;
+
 ?>
 
 <!DOCTYPE html>
@@ -13,23 +14,32 @@ use App\Application\Views\View;
     <body>
         <main class="main">
             <?php View::component('nav'); ?>
-            <h2>Login</h2>
-            <form>
+            <h2>Register</h2>
+            <form method="post" action="/register">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" name="email" id="email">
+                    <input type="" class="form-control" name="email" id="email">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" id="name">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" name="password" id="password">
                 </div>
                 <div class="mb-3">
-                    <p>No account? <a href="/register">Register</a></p>
+                    <label for="password_confirm" class="form-label">Password confirm</label>
+                    <input type="password" class="form-control" name="password_confirm" id="password_confirm">
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <div class="mb-3">
+                    <p>Have account? <a href="/login">Login</a></p>
+                </div>
+                <button type="submit" class="btn btn-success">Register</button>
             </form>
         </main>
         <?php View::component('scripts'); ?>
     </body>
 </html>
+
 

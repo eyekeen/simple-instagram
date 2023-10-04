@@ -4,6 +4,8 @@ namespace App\Application\Request;
 
 class Request implements RequestInterface {
 
+    use RequestValidation;
+
     private array $post;
     private array $get;
     private array $files;
@@ -24,5 +26,12 @@ class Request implements RequestInterface {
 
     public function file(string $key): mixed {
         return $this->files[$key] ?? NULL;
+    }
+
+    public function validation(array $rules): array|bool {
+        return $this->validate(
+                $this->post,
+                $rules
+        );
     }
 }

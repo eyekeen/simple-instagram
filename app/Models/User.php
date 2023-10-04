@@ -7,7 +7,7 @@ use App\Application\Database\Model;
 class User extends Model {
 
     protected string $table = 'users';
-    protected array $fields = ['email', 'name', 'token', 'password'];
+    protected array $fields = ['email', 'name', 'avatar', 'token', 'password'];
     protected string $email;
     protected string $name;
     protected string $password;
