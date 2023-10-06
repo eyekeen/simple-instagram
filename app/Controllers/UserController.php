@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Application\Request\Request;
 use App\Services\User\UserService;
+use App\Application\Router\Redirect;
+use App\Application\Alerts\Alert;
 
 class UserController {
 
@@ -18,11 +20,14 @@ class UserController {
         $errors = $request->validation([
             'email' => ['required', 'email'],
             'name' => ['required'],
+            'password' => ['required', 'password_confirm'],
         ]);
         
         if(!$request->validationStatus()){
-            dd($request->validationErrors());
+            Alert::storeMessage('Register error', 'danger');
+            Redirect::to('/register');
         }
+        
         
         $this->service->register([
             'email' => $request->post('email'),
@@ -30,5 +35,9 @@ class UserController {
             'password' => $request->post('password'),
             'password_confirm' => $request->post('password_confirm'),
         ]);
+        
+        Alert::storeMessage('Register has been successfully', 'success');
+        
+        Redirect::to('/login');
     }
 }

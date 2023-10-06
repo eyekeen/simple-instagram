@@ -2,6 +2,7 @@
 
 use App\Application\Config\Config;
 use App\Application\Views\View;
+use App\Application\Alerts\Alert;
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +16,11 @@ use App\Application\Views\View;
             <?php View::component('nav'); ?>
             <h2>Login</h2>
             <form>
+                <?php if (Alert::success()) { ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= Alert::success(true) ?>
+                    </div>
+                <?php } ?>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" class="form-control" name="email" id="email">

@@ -54,7 +54,7 @@ class Model extends Connection implements ModelInterface {
         $stmt = $this->connect()->prepare($query);
 
         foreach ($this->fields as $field) {
-            $params[$field] = $this->$field;
+            $params[$field] = $this->$field ?? null;
         }
 
         $stmt->execute($params);

@@ -12,4 +12,5 @@ interface ErrorInterface {
     
     public static function has(string $key): bool;
     
+    public static function get(string $key, bool $all = false): string|array|null;
 }

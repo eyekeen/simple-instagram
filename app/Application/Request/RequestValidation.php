@@ -3,6 +3,7 @@
 namespace App\Application\Request;
 
 use App\Application\Alerts\Error;
+use App\Application\Config\Config;
 
 trait RequestValidation {
 
@@ -17,11 +18,15 @@ trait RequestValidation {
                         if (empty($data[$key])) {
                             $this->errors[$key][] = "Field $key is empty";
                         }
-
                         break;
                     case 'email':
                         if (!filter_var($data[$key], FILTER_VALIDATE_EMAIL)) {
                             $this->errors[$key][] = "Not valid email";
+                        }
+                        break;
+                    case 'password_confirm':
+                        if ($data[$key] !== $data[Config::get('validation.password.confirm')]) {
+                            $this->errors[$key][] = "Password does not match";
                         }
                         break;
                     default:
