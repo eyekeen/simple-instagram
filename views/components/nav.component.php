@@ -1,3 +1,8 @@
+<?php
+
+use App\Application\Auth\Auth;
+?>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary mt-2 mb-4">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">PHPGram</a>
@@ -13,8 +18,12 @@
                     <a class="nav-link" href="/profile">Profile</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <a href="/login" class="btn btn-outline-success" type="submit">Login</a>
+            <form class="d-flex" action="/logout" method="post">
+                <?php if (Auth::check()) { ?>
+                        <button type="submit" class="btn btn-outline-danger" >Logout</button>
+                <?php } else { ?>
+                    <a href="/login" class="btn btn-outline-success" type="submit">Login</a>
+                <?php } ?>
             </form>
         </div>
     </div>

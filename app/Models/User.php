@@ -8,11 +8,12 @@ class User extends Model {
 
     protected string $table = 'users';
     protected array $fields = ['email', 'name', 'avatar', 'token', 'password'];
+    
     protected string $email;
-    protected string $name;
+    protected ?string $name;
     protected string $password;
-    protected string $token;
-    protected string $avatar;
+    protected ?string $token;
+    protected ?string $avatar;
 
     public function setEmail(string $email): void {
         $this->email = $email;

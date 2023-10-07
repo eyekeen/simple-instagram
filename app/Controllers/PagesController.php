@@ -24,4 +24,11 @@ class PagesController {
             'title' => 'Register - ' . Config::get('app.name')
         ]);
     }
+    
+    public function profile(): void {
+        View::show('pages/profile', [
+           'title' => 'Profile - ' . Config::get('app.name'),
+            'pageTitle' => 'Profile',
+        ]);
+    }
 }

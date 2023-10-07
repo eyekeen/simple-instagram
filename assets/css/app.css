@@ -29,5 +29,8 @@ body .card-link.like.active .bi-heart-fill {
 body .card-link.like.active .bi-heart {
   display: none;
 }
+body .bd-placeholder-img {
+  text-anchor: middle;
+}
 
 /*# sourceMappingURL=app.css.map */

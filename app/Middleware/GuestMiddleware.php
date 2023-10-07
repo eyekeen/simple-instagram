@@ -10,7 +10,8 @@ class GuestMiddleware extends Middleware {
     
     public function handle() {
         if(Auth::check()){
-            Redirect::to('/home');
+            // TODO: need add HOME constant or something else for it
+            Redirect::to('/');
         }
     }
 }
