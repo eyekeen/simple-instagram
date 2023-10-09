@@ -1,46 +1,78 @@
 body{
-    
+
     display: flex;
     justify-content: center;
-    
+
+    p, h5{
+        margin: 0;
+        padding: 0;
+    }
+
     .main{
         width: 40rem;
-    }
-    
-    .card-link{
-        
-        .bi-heart{
-            display: block;
-        }
-        
-        .bi-heart-fill{
-            display: none;
-        }
-        
-        &.like{
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            
-            span.likes{
-                display: block;
-                margin-left: 10px;
-            }
-        }
-        
-        &.like.active {
-            color: #dc3545;
-            .bi-heart-fill{
-                display: block;
-            }
-            
+
+
+        .card-link{
+
             .bi-heart{
+                display: block;
+            }
+
+            .bi-heart-fill{
                 display: none;
             }
+
+            &.like{
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+
+                span.likes{
+                    display: block;
+                    margin-left: 10px;
+                }
+            }
+
+            &.like.active {
+                color: #dc3545;
+                .bi-heart-fill{
+                    display: block;
+                }
+
+                .bi-heart{
+                    display: none;
+                }
+            }
         }
-    }
-    
-    .bd-placeholder-img{
-        text-anchor: middle;
+
+        .bd-placeholder-img{
+            text-anchor: middle;
+        }
+
+        .profile{
+            margin-top: 30px;
+
+            display: flex;
+
+            .profile_avatar{
+                display: block;
+                width: 200px;
+                height: 200px;
+                border-radius: 8px;
+            }
+
+            .profile_info{
+                margin-left: 20px;
+                align-self: center;
+
+                .profile_info--email{
+                    margin-top: 10px;
+                }
+
+                .profile_info--registered{
+                    font-size: 12px;
+                }
+            }
+        }
     }
 }

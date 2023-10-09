@@ -2,35 +2,59 @@ body {
   display: flex;
   justify-content: center;
 }
+body p, body h5 {
+  margin: 0;
+  padding: 0;
+}
 body .main {
   width: 40rem;
 }
-body .card-link .bi-heart {
+body .main .card-link .bi-heart {
   display: block;
 }
-body .card-link .bi-heart-fill {
+body .main .card-link .bi-heart-fill {
   display: none;
 }
-body .card-link.like {
+body .main .card-link.like {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
-body .card-link.like span.likes {
+body .main .card-link.like span.likes {
   display: block;
   margin-left: 10px;
 }
-body .card-link.like.active {
+body .main .card-link.like.active {
   color: #dc3545;
 }
-body .card-link.like.active .bi-heart-fill {
+body .main .card-link.like.active .bi-heart-fill {
   display: block;
 }
-body .card-link.like.active .bi-heart {
+body .main .card-link.like.active .bi-heart {
   display: none;
 }
-body .bd-placeholder-img {
+body .main .bd-placeholder-img {
   text-anchor: middle;
+}
+body .main .profile {
+  margin-top: 30px;
+  display: flex;
+}
+body .main .profile .profile_avatar {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+}
+body .main .profile .profile_info {
+  margin-left: 20px;
+  align-self: center;
+}
+body .main .profile .profile_info .profile_info--email {
+  margin-top: 10px;
+}
+body .main .profile .profile_info .profile_info--registered {
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=app.css.map */
