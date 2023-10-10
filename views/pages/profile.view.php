@@ -36,17 +36,17 @@ $user = Auth::user();
                 </div>
             </div>
             <hr />
-            <h5>Public post</h5>
-            <form action="action">
+            <h5>Publish post</h5>
+            <form action="/post/publish" method="post" enctype="multipart/form-data">
                 <div class="mb-3 mt-2">
-                    <label for="formFile" class="form-label">Post image</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <label for="image" class="form-label">Post image</label>
+                    <input class="form-control" type="file" name="image" id="image">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Post description</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label for="description" class="form-label">Post description</label>
+                    <textarea class="form-control" name="description" id="description" rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-success">Public</button>
+                <button type="submit" class="btn btn-success">Publish</button>
             </form>
             <hr />
             <h5>My published posts</h5>
