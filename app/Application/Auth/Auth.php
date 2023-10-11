@@ -9,7 +9,7 @@ use App\Application\Config\Config;
 class Auth implements AuthInterface {
 
     protected static $model;
-    protected static $user;
+    protected static User $user;
     protected static ?string $token;
     protected static string $tokenColumn;
 

@@ -23,6 +23,5 @@ class Upload implements UploadInterface {
         }
         
         return Config::get('app.storage_folder') . "/$to/$fileName";
-
     }
 }

@@ -38,6 +38,11 @@ $user = Auth::user();
             <hr />
             <h5>Publish post</h5>
             <form action="/post/publish" method="post" enctype="multipart/form-data">
+                <?php if (Alert::danger()) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= Alert::danger(true) ?>
+                    </div>
+                <?php } ?>
                 <div class="mb-3 mt-2">
                     <label for="image" class="form-label">Post image</label>
                     <input class="form-control" type="file" name="image" id="image">

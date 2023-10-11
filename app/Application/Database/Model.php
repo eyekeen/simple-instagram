@@ -5,11 +5,14 @@ namespace App\Application\Database;
 class Model extends Connection implements ModelInterface {
 
     protected int $id;
+  
     protected string $created_at;
     protected string $updated_at;
+    
     protected array $fields = [];
     protected string $table;
     protected array $collection = [];
+   
     
     public function createdAt(): ?string {
         return $this->created_at;

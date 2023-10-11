@@ -13,4 +13,5 @@ interface AuthInterface {
     public static function user(): Model;
     
     public static function getTokenColumn(): string;
+    
 }
