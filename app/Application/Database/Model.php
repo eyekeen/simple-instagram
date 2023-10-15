@@ -2,6 +2,8 @@
 
 namespace App\Application\Database;
 
+use App\Application\Router\Redirect;
+
 class Model extends Connection implements ModelInterface {
 
     protected int $id;
@@ -104,5 +106,19 @@ class Model extends Connection implements ModelInterface {
         $data['id'] = $this->id;
 
         $stmt->execute($data);
+    }
+    
+    public function destroy(int $id): void {
+
+        $this->connect()->query()->fetchAll(\PDO::FETCH_ASSOC);
+
+        $query = "DELETE FROM `" . $this->getTable() . "` WHERE id = :id";
+        $stmt = $this->connect()->prepare($query);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        
+        Redirect::to('/');
+
     }
 }

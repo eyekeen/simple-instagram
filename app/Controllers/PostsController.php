@@ -20,4 +20,8 @@ class PostsController {
         
         $this->service->store($request->file('image'), $request->post('description'));
     }
+    
+    public function like(Request $request) {
+        dd($request->post('id'));
+    }
 }

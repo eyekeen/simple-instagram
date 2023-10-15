@@ -3,6 +3,7 @@
 namespace App\Services\Posts;
 
 use App\Models\Post;
+use App\Models\Like;
 use App\Application\Upload\Upload;
 use App\Application\Alerts\Alert;
 use App\Application\Router\Redirect;
@@ -24,6 +25,18 @@ class PostsService implements PostsServiceInterface {
         }
         
         Redirect::to('/profile');
+    }
+    
+    public function like(int $post_id): void {
+        
+        $like = new Like();
+        
+        $like->setPost($post_id);
+        $like->setUser(Auth::id());
+        
+        $like->store();
+        
+        Redirect::to('/');
     }
 
     public function destroy(int $id): void {
