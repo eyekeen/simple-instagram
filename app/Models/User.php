@@ -38,8 +38,4 @@ class User extends Model {
     public function getPassword(): string {
         return $this->password;
     }
-    
-    public function getId(): string {
-        return $this->id;
-    }
 }

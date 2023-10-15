@@ -56,5 +56,11 @@ body .main .profile .profile_info .profile_info--email {
 body .main .profile .profile_info .profile_info--registered {
   font-size: 12px;
 }
+body .main .posts .card-img-top {
+  display: block;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
 
 /*# sourceMappingURL=app.css.map */

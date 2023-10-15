@@ -17,7 +17,7 @@ class Upload implements UploadInterface {
         $path = "$storage/$to";
         self::checkFolder($path);
         $fileName = date('d.m.Y') . '-' . uniqid() . '-' . $file['name'];
-        
+                
         if(!move_uploaded_file($file['tmp_name'], "$path/$fileName")){
             return false;
         }

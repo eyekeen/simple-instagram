@@ -5,8 +5,11 @@ use App\Application\Views\View;
 use App\Application\Alerts\Alert;
 use App\Application\Alerts\Error;
 use App\Application\Auth\Auth;
+use App\Models\Post;
 
 $user = Auth::user();
+
+$posts = (new Post())->find('user_id', $user->id(), true);
 ?>
 
 <!DOCTYPE html>
@@ -55,39 +58,19 @@ $user = Auth::user();
             </form>
             <hr />
             <h5>My published posts</h5>
-            <div class="row row-cols-1 mt-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card">
-                        <img src="/assets/img/avatar.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="row row-cols-1 mt-1 row-cols-md-3 g-4 mb-5 posts">
+                <?php foreach ($posts as $post) { ?>
+                    <div class="col">
+                        <div class="card">
+                            <img src="<?= $post->getImage() ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <?= $post->getDescription() ?>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="/assets/img/avatar.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="/assets/img/avatar.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="/assets/img/avatar.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </main>
         <?php View::component('scripts'); ?>

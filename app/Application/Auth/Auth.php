@@ -28,12 +28,17 @@ class Auth implements AuthInterface {
         return (bool) self::$user;
     }
 
-    public static function user(): User {
+    public static function user(): Model {
 
         return self::$user ?? self::$model->find(self::$tokenColumn, self::$token);
     }
 
     public static function getTokenColumn(): string {
         return self::$tokenColumn;
+    }
+
+    public static function id(): ?int {
+        self::check();
+        return self::$user->id();
     }
 }

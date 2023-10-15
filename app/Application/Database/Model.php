@@ -5,19 +5,20 @@ namespace App\Application\Database;
 class Model extends Connection implements ModelInterface {
 
     protected int $id;
-  
     protected string $created_at;
     protected string $updated_at;
-    
     protected array $fields = [];
     protected string $table;
     protected array $collection = [];
-   
-    
+
+    public function id(): int {
+        return $this->id;
+    }
+
     public function createdAt(): ?string {
         return $this->created_at;
     }
-    
+
     public function find(string $column, mixed $value, bool $many = false): array|bool|Model {
         $query = "SELECT * FROM `" . $this->getTable() . "` WHERE `$column` = :$column";
         $stmt = $this->connect()->prepare($query);
@@ -26,7 +27,14 @@ class Model extends Connection implements ModelInterface {
         ]);
 
         if ($many) {
-            $this->collection = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $items = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            foreach ($items as $item) {
+                foreach ($item as $key => $value) {
+                    $this->$key = $value;
+                }
+                $this->collection[] = clone $this;
+            }
             return $this->collection;
         } else {
             $entity = $stmt->fetch(\PDO::FETCH_ASSOC);
@@ -39,6 +47,18 @@ class Model extends Connection implements ModelInterface {
 
             return $this;
         }
+    }
+
+    public function all(): array {
+        $items = $this->connect()->query("SELECT * FROM `" . $this->getTable() . "` ORDER BY id DESC")->fetchAll(\PDO::FETCH_ASSOC);
+
+        foreach ($items as $item) {
+            foreach ($item as $key => $value) {
+                $this->$key = $value;
+            }
+            $this->collection[] = clone $this;
+        }
+        return $this->collection;
     }
 
     private function getTable(): string {

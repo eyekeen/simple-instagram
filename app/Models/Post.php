@@ -16,7 +16,7 @@ class Post extends Model {
         $this->image = $image;
     }
 
-    public function setDescription(string $description): void {
+    public function setDescription(?string $description): void {
         $this->description = $description;
     }
 
@@ -31,4 +31,9 @@ class Post extends Model {
     public function getDescription(): ?string{
         return $this->description;
     }
+    
+    public function getUser(): ?int{
+        return $this->user_id;
+    }
+    
 }
