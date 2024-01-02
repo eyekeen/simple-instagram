@@ -1,9 +1,9 @@
 # PHPGram
 Пародия на Инстаграм, написанная на PHP с использованием MVP фреймворка, представляет собой веб-приложение, в котором люди могу постить посты с фото и коротким описание.
-![ticket 1](https://fikiwiki.com/uploads/posts/2022-02/1644938153_7-fikiwiki-com-p-kartinki-yami-na-dorogakh-8.jpg)
-*A single track trail outside of Albuquerque, New Mexico.*
-![ticket 2](https://fikiwiki.com/uploads/posts/2022-02/1644938153_7-fikiwiki-com-p-kartinki-yami-na-dorogakh-8.jpg)
-*A single track trail outside of Albuquerque, New Mexico.*
+![main](/assets/img/main.png)
+*Лента с постами пользователей*
+![profile](/assets/img/profile.png)
+*Профиль пользователя*
 
 ## Использванные технологии
 - PHP >=8.0
