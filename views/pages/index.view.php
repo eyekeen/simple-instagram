@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Like;
 use App\Application\Auth\Auth;
 
+
 $posts = (new Post)->all();
 
 $likes = (new Like)->find('user_id', Auth::id(), true);

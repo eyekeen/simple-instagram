@@ -13,7 +13,7 @@ class Model extends Connection implements ModelInterface {
     protected string $table;
     protected array $collection = [];
 
-    public function id(): int {
+    public function id(): ?int {
         return $this->id;
     }
 

@@ -3,8 +3,8 @@
 return [
     'driver' => 'mysql',
     'host' => 'localhost',
-    'dbname' => 'framework',
+    'dbname' => 'instgram_db',
     'port' => 3306,
-    'user' => 'tarum',
-    'password' => 'root123',
+    'user' => 'root',
+    'password' => '',
 ];
