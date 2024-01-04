@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Application\Request\Request;
+use App\Application\Router\Redirect;
 use App\Services\Posts\PostsService;
+use App\Models\Like;
 
 class PostsController {
     
@@ -22,6 +24,24 @@ class PostsController {
     }
     
     public function like(Request $request) {
-        dd($request->post('id'));
+        $post_id = $request->post('post');
+        $user = $request->post('user');
+        
+        $like = new Like();
+        $like->setPost($post_id);
+        $like->setUser($user);
+        
+        Redirect::to('/');
+    }
+    
+    public function unlike(Request $request) {
+        $post_id = $request->post('post');
+        $user = $request->post('user');
+        
+        $like = new Like();
+        $like->setPost($post_id);
+        $like->setUser($user);
+        
+        Redirect::to('/');
     }
 }

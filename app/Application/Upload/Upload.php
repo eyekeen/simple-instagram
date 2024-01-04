@@ -13,6 +13,7 @@ class Upload implements UploadInterface {
     public static function file(array $file, string $to = 'files'): bool|string {
         $storage = __DIR__ . '/../../../' . Config::get('app.storage_folder');
        
+        self::checkFolder($storage);
         
         $path = "$storage/$to";
         self::checkFolder($path);

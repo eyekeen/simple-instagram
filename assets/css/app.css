@@ -15,22 +15,22 @@ body .main .card-link .bi-heart {
 body .main .card-link .bi-heart-fill {
   display: none;
 }
-body .main .card-link.like {
+body .main .btn.like {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
-body .main .card-link.like span.likes {
+body .main .btn.like span.likes {
   display: block;
   margin-left: 10px;
 }
-body .main .card-link.like.active {
+body .main .btn.like.active {
   color: #dc3545;
 }
-body .main .card-link.like.active .bi-heart-fill {
+body .main .btn.like.active .bi-heart-fill {
   display: block;
 }
-body .main .card-link.like.active .bi-heart {
+body .main .btn.like.active .bi-heart {
   display: none;
 }
 body .main .bd-placeholder-img {

@@ -51,6 +51,21 @@ class Model extends Connection implements ModelInterface {
         }
     }
 
+    public function raw(string $query, array $params = []) {
+        $stmt = $this->connect()->prepare($query);
+        $stmt->execute($params);
+
+        $items = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        foreach ($items as $item) {
+            foreach ($item as $key => $value) {
+                $this->$key = $value;
+            }
+            $this->collection[] = clone $this;
+        }
+        return $this->collection;
+    }
+
     public function all(): array {
         $items = $this->connect()->query("SELECT * FROM `" . $this->getTable() . "` ORDER BY id DESC")->fetchAll(\PDO::FETCH_ASSOC);
 
@@ -107,7 +122,7 @@ class Model extends Connection implements ModelInterface {
 
         $stmt->execute($data);
     }
-    
+
     public function destroy(int $id): void {
 
         $this->connect()->query()->fetchAll(\PDO::FETCH_ASSOC);
@@ -117,8 +132,7 @@ class Model extends Connection implements ModelInterface {
         $stmt->execute([
             'id' => $id,
         ]);
-        
-        Redirect::to('/');
 
+        Redirect::to('/');
     }
 }

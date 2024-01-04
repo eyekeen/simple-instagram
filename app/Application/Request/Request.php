@@ -20,8 +20,8 @@ class Request implements RequestInterface {
         return $this->get[$key] ?? NULL;
     }
 
-    public function post(string $key): mixed {
-        return $this->post[$key] ?? NULL;
+    public function post(string $key = null): mixed {
+        return $this->post[$key] ?? $this->post;
     }
 
     public function file(string $key): mixed {

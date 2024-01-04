@@ -2,9 +2,9 @@
 
 return [
     'driver' => 'mysql',
-    'host' => 'localhost',
-    'dbname' => 'instgram_db',
+    'host' => '172.17.0.2',
+    'dbname' => 'instagram_db',
     'port' => 3306,
     'user' => 'root',
-    'password' => '',
+    'password' => 'root123',
 ];
