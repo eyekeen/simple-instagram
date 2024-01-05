@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Application\Database\Model;
+use App\Application\Auth\Auth;
 
 class Like extends Model {
     protected string $table = 'likes';
@@ -24,5 +25,16 @@ class Like extends Model {
 
     public function getUser(): int{
         return $this->user_id;
+    }
+    
+    public function getLikedPosts() {
+        $user_likes = $this->find('user_id', Auth::id(), true);
+        $likedPosts = [];
+        
+        foreach ($user_likes as $value) {
+            $likedPosts[] = $value->post_id;
+        }
+        
+        return $likedPosts;
     }
 }

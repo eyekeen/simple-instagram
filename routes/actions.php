@@ -10,3 +10,4 @@ Route::post('/login', UserController::class, 'login');
 Route::post('/logout', UserController::class, 'logout');
 Route::post('/post/publish', PostsController::class, 'publish');
 Route::post('/post/like', PostsController::class, 'like');
+Route::post('/post/unlike', PostsController::class, 'unlike');

@@ -124,9 +124,6 @@ class Model extends Connection implements ModelInterface {
     }
 
     public function destroy(int $id): void {
-
-        $this->connect()->query()->fetchAll(\PDO::FETCH_ASSOC);
-
         $query = "DELETE FROM `" . $this->getTable() . "` WHERE id = :id";
         $stmt = $this->connect()->prepare($query);
         $stmt->execute([
